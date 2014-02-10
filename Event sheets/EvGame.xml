@@ -33,17 +33,6 @@
                 </action>
             </actions>
         </event-block>
-        <event-block disabled="1" sid="4755787444050447">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="9228640939509493" type="System" />
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="1349845173082905" type="System">
-                    <param id="0" name="Variable">intervallepop</param>
-                    <param id="1" name="Value">(TimePassed*TimePassed/2)/2</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="3750380677069279">
             <conditions>
                 <condition id="-18" name="On created" sid="9068122960451313" type="Collider" />
@@ -105,6 +94,9 @@
                 <condition id="1" name="Is overlapping another object" sid="1231786598186375" type="Collider">
                     <param id="0" name="Object">KillZone</param>
                 </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="6015940463981151" type="HitZone">
+                    <param id="0" name="Instance variable">isActive</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="6377082441387559" type="Collider" />
@@ -127,6 +119,9 @@
                 <condition id="1" name="Is overlapping another object" sid="7418058603573898" type="Balle_bombe">
                     <param id="0" name="Object">KillZone</param>
                 </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="8101796494666576" type="HitZone">
+                    <param id="0" name="Instance variable">isActive</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="6492716591846165" type="Balle_bombe" />
@@ -138,6 +133,315 @@
         </event-block>
         <event-group description="" sid="2585155193080069" title="MainBehavior">
             <sub-events>
+                <event-block collapsed="1" sid="344039480125348">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="6689909176697916" type="System">
+                            <param id="0" name="Interval (seconds)">intervallepop</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1901724032979583" type="HitZone">
+                            <param id="0" name="Instance variable">isActive</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3629980305356287" type="System">
+                            <param id="0" name="Variable">choixballe</param>
+                            <param id="1" name="Value">floor(random(0,101))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6438685196836369">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6280414927673746" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="4057612320736849" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="7951895527264959" type="System">
+                                    <param id="0" name="Object to create">Ball_Big</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2790686011370971">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6318726338268037" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="1535360026528906" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">19</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="3786516188542063" type="System">
+                                    <param id="0" name="Object to create">Ball_Small</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="912368770848296">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6513344001539642" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">20</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="8493821564319964" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2680572314529581" type="System">
+                                    <param id="0" name="Object to create">Ball_Standard</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="621731354075361">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6921273914914732" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">40</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="8864106318860853" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">54</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="1256000800010235" type="System">
+                                    <param id="0" name="Object to create">BalleFade</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="991186639616391">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1520946775456163" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">55</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="8012825093621747" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">64</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8722753796296133" type="System">
+                                    <param id="0" name="Object to create">balleoscillante</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9859312622201276">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2371894738759816" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">65</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7351060362683462" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">71</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="9512744765081277" type="System">
+                                    <param id="0" name="Object to create">Ballesautante</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8780386533202105">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5713122986827804" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">72</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="6470732006858838" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">81</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="1262678181751672" type="System">
+                                    <param id="0" name="Object to create">ballerebondi</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8134519348692142">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7942644406059134" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">82</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="3839629950398711" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">85</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8558745011545113" type="System">
+                                    <param id="0" name="Object to create">BalleAimant1</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="1334046683337243" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="6500674888224681" type="System">
+                                    <param id="0" name="Object to create">BalleAimant2</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7577426029358869">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="633896312747712" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">86</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7926095597712778" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="6254681389648342" type="System">
+                                    <param id="0" name="Object to create">Balle_bombe</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="664644359226159">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4823107456315464" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">91</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7859008356647678" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">93</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="4057353780064333" type="System">
+                                    <param id="0" name="Object to create">Ballerapide</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5724946945642553">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3676383950048489" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">94</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="2833880813614203" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">96</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="6244800380618865" type="System">
+                                    <param id="0" name="Object to create">Balle_ordonnee1</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="7582176498116663" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="9476175027804148" type="System">
+                                    <param id="0" name="Object to create">Balle_ordonnee2</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6376964978616541" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="9199840150852287" type="System">
+                                    <param id="0" name="Object to create">Balle_ordonnee3</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9385084040031833">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9656565590065496" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">97</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="1188373529106252" type="System">
+                                    <param id="0" name="Variable">choixballe</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2169487552317447" type="System">
+                                    <param id="0" name="Object to create">Balle_Slide</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">Random(5,1600)</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="8996818154460846">
                     <conditions>
                         <condition id="-8" name="Is boolean instance variable set" sid="208817861435823" type="HitZone">
@@ -146,388 +450,6 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="678307054766214">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="7952054014419441" type="Touch">
-                                    <param id="0" name="Object">Ball_Big</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="6225362401596075" type="Ball_Big">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="6560887766449654" type="Ball_Big">
-                                    <param id="0" name="Speed">-Ball_Big.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="3772214730670122" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">3*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="6106094811349899" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="240925504860231">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="5064413829393815" type="Touch">
-                                    <param id="0" name="Object">Ball_Small</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="3070799892751581" type="Ball_Small">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="7953710376344071" type="Ball_Small">
-                                    <param id="0" name="Speed">-Ball_Small.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="4955238458215541" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">3*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="1056462495238654" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.4</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="7063821328090755">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="5407208323503114" type="Touch">
-                                    <param id="0" name="Object">Ball_Standard</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="3409227642294321" type="Ball_Standard">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="8854831253688385" type="Ball_Standard">
-                                    <param id="0" name="Speed">-Ball_Standard.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="1393452974426983" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">3*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="7771777662195663" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="8140520452502291">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="2905518403809717" type="Touch">
-                                    <param id="0" name="Object">Balle_bombe</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="1752376362321929" type="Balle_bombe">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-11" name="Add to" sid="2814862375498417" type="KillZone">
-                                    <param id="0" name="Instance variable">balleperdue</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="-9" name="Destroy" sid="7900406506388742" type="Balle_bombe" />
-                            </actions>
-                        </event-block>
-                        <event-block sid="1162840229419385">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="5337105001240844" type="Touch">
-                                    <param id="0" name="Object">Balle_ordonnee1</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="5444224952621729" type="Balle_ordonnee1">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="5148997548631679" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">3</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="3596241906944739" type="Balle_ordonnee1">
-                                    <param id="0" name="Speed">-Balle_ordonnee1.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="162284007060007" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="5496856884774504" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">5*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="5311812346732652" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.2</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="8553225002057023" type="Balle_ordonnee1">
-                                    <param id="0" name="Instance variable">Done</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="4220814638917745">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="2921236955432599" type="Touch">
-                                    <param id="0" name="Object">Balle_ordonnee2</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="2541302694520328" type="Balle_ordonnee2">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="6567750960068268" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="1826378626578683" type="Balle_ordonnee2">
-                                    <param id="0" name="Speed">-Balle_ordonnee2.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="5887506570660241" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Value">2</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="690082215343973" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">10*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="9243645965279315" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.8</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="6028979799110319" type="Balle_ordonnee2">
-                                    <param id="0" name="Instance variable">Done</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="7832818689917178">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="2031518912384507" type="Touch">
-                                    <param id="0" name="Object">Balle_ordonnee3</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="6646778872840222" type="Balle_ordonnee3">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="2976266850996515" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">2</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="3194097390793827" type="Balle_ordonnee3">
-                                    <param id="0" name="Speed">-Balle_ordonnee3.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="7736751665918076" type="System">
-                                    <param id="0" name="Variable">BalleOrdone</param>
-                                    <param id="1" name="Value">3</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="8166485908115426" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">15*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="5272105398093075" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">1.2</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="6830684003505208" type="Balle_ordonnee3">
-                                    <param id="0" name="Instance variable">Done</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="766000753300622">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="9341857496550414" type="Balle_Slide">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="DragDrop" id="0" name="Set enabled" sid="7786860908971282" type="Balle_Slide">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="6423151328448313">
-                            <conditions>
-                                <condition id="1" inverted="1" name="Is overlapping another object" sid="5257491228945241" type="Balle_Slide">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="DragDrop" id="0" name="Set enabled" sid="8338761611575797" type="Balle_Slide">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="4332459653431845">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="6388941220914948" type="Touch">
-                                    <param id="0" name="Object">BalleFade</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="4834727238000282" type="BalleFade">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="4310546747971699" type="BalleFade">
-                                    <param id="0" name="Speed">-BalleFade.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="7281272413099712" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">6*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="6103831217345693" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.4</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="3109116052410528">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="6236267330420597" type="Touch">
-                                    <param id="0" name="Object">balleoscillante</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="3066006727610181" type="balleoscillante">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="9677631122197751" type="balleoscillante">
-                                    <param id="0" name="Speed">-balleoscillante.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="8242312231449736" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">4*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="123369189964333" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="2808744573685213">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="4750557509291869" type="Touch">
-                                    <param id="0" name="Object">Ballerapide</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="2416612633065641" type="Ballerapide">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="5482422848733776" type="Ballerapide">
-                                    <param id="0" name="Speed">-Ballerapide.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="309009835509463" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">8*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="2870551995159337" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.5</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="6108114558853684">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="7771324982435711" type="Touch">
-                                    <param id="0" name="Object">ballerebondi</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="2102333845019217" type="ballerebondi">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="3724365415596471" type="ballerebondi">
-                                    <param id="0" name="Speed">-ballerebondi.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="4841371950816486" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">4*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="457989091109339" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="368857136460562">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="3660458004135671" type="Touch">
-                                    <param id="0" name="Object">BalleAimant1</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="5641318130236783" type="BalleAimant1">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="1624535552261272" type="BalleAimant1">
-                                    <param id="0" name="Speed">-BalleAimant1.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="6789388246550143" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">6*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="9228043617293523" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.5</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="284756808276046">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="3149182984033712" type="Touch">
-                                    <param id="0" name="Object">BalleAimant2</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="3201987705166593" type="BalleAimant2">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="3131391961040642" type="BalleAimant2">
-                                    <param id="0" name="Speed">-BalleAimant2.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="1331185278023875" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">6*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="3610685045358095" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.5</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="3790361550500793">
-                            <conditions>
-                                <condition id="3" name="On touched object" sid="3787224631478958" type="Touch">
-                                    <param id="0" name="Object">Ballesautante</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="5720431254944082" type="Ballesautante">
-                                    <param id="0" name="Object">HitZone</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="6493508023245232" type="Ballesautante">
-                                    <param id="0" name="Speed">-Ballesautante.Bullet.Speed -AddSpeedGeneral</param>
-                                </action>
-                                <action id="-14" name="Toggle boolean" sid="9800481530230886" type="Ballesautante">
-                                    <param id="0" name="Instance variable">Aller</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="1045854448159294" type="System">
-                                    <param id="0" name="Variable">Score</param>
-                                    <param id="1" name="Value">3*Multi</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="5677474063885039" type="System">
-                                    <param id="0" name="Variable">Multi_hidden</param>
-                                    <param id="1" name="Value">0.3</param>
-                                </action>
-                            </actions>
-                        </event-block>
                         <event-block sid="6683100574939343">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="3580805987538003" type="System">
@@ -1757,70 +1679,452 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="2570046755919398">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8267001501960376" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="475504606288987" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4914762786885665" type="System">
+                                    <param id="0" name="Variable">intervallepop</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4214560505431591">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2175578612930735" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="5672656319825048" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="6808145382170643" type="System">
+                                    <param id="0" name="Variable">intervallepop</param>
+                                    <param id="1" name="Value">10</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8846184941648949">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8975147200327352" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="1801975531542345" type="System">
+                                    <param id="0" name="Variable">Ball_on_screen</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="6387366348867593" type="System">
+                                    <param id="0" name="Variable">intervallepop</param>
+                                    <param id="1" name="Value">6</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="678307054766214">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="7952054014419441" type="Touch">
+                                    <param id="0" name="Object">Ball_Big</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="6225362401596075" type="Ball_Big">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="6560887766449654" type="Ball_Big">
+                                    <param id="0" name="Speed">-Ball_Big.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="3772214730670122" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">3*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="6106094811349899" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="240925504860231">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="5064413829393815" type="Touch">
+                                    <param id="0" name="Object">Ball_Small</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="3070799892751581" type="Ball_Small">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="7953710376344071" type="Ball_Small">
+                                    <param id="0" name="Speed">-Ball_Small.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="4955238458215541" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">3*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1056462495238654" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7063821328090755">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="5407208323503114" type="Touch">
+                                    <param id="0" name="Object">Ball_Standard</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="3409227642294321" type="Ball_Standard">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="8854831253688385" type="Ball_Standard">
+                                    <param id="0" name="Speed">-Ball_Standard.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1393452974426983" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">3*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="7771777662195663" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8140520452502291">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="2905518403809717" type="Touch">
+                                    <param id="0" name="Object">Balle_bombe</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="1752376362321929" type="Balle_bombe">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="2814862375498417" type="KillZone">
+                                    <param id="0" name="Instance variable">balleperdue</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="7900406506388742" type="Balle_bombe" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="1162840229419385">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="5337105001240844" type="Touch">
+                                    <param id="0" name="Object">Balle_ordonnee1</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="5444224952621729" type="Balle_ordonnee1">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="5148997548631679" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="3596241906944739" type="Balle_ordonnee1">
+                                    <param id="0" name="Speed">-Balle_ordonnee1.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="162284007060007" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5496856884774504" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">5*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5311812346732652" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.2</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="8553225002057023" type="Balle_ordonnee1">
+                                    <param id="0" name="Instance variable">Done</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4220814638917745">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="2921236955432599" type="Touch">
+                                    <param id="0" name="Object">Balle_ordonnee2</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="2541302694520328" type="Balle_ordonnee2">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="6567750960068268" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="1826378626578683" type="Balle_ordonnee2">
+                                    <param id="0" name="Speed">-Balle_ordonnee2.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5887506570660241" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="690082215343973" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">10*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="9243645965279315" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.8</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="6028979799110319" type="Balle_ordonnee2">
+                                    <param id="0" name="Instance variable">Done</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7832818689917178">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="2031518912384507" type="Touch">
+                                    <param id="0" name="Object">Balle_ordonnee3</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="6646778872840222" type="Balle_ordonnee3">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="2976266850996515" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="3194097390793827" type="Balle_ordonnee3">
+                                    <param id="0" name="Speed">-Balle_ordonnee3.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7736751665918076" type="System">
+                                    <param id="0" name="Variable">BalleOrdone</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="8166485908115426" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">15*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5272105398093075" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">1.2</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="6830684003505208" type="Balle_ordonnee3">
+                                    <param id="0" name="Instance variable">Done</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="766000753300622">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="9341857496550414" type="Balle_Slide">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="DragDrop" id="0" name="Set enabled" sid="7786860908971282" type="Balle_Slide">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6423151328448313">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="5257491228945241" type="Balle_Slide">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="DragDrop" id="0" name="Set enabled" sid="8338761611575797" type="Balle_Slide">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4332459653431845">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="6388941220914948" type="Touch">
+                                    <param id="0" name="Object">BalleFade</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="4834727238000282" type="BalleFade">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="4310546747971699" type="BalleFade">
+                                    <param id="0" name="Speed">-BalleFade.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="7281272413099712" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">6*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="6103831217345693" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3109116052410528">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="6236267330420597" type="Touch">
+                                    <param id="0" name="Object">balleoscillante</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="3066006727610181" type="balleoscillante">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="9677631122197751" type="balleoscillante">
+                                    <param id="0" name="Speed">-balleoscillante.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="8242312231449736" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">4*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="123369189964333" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2808744573685213">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="4750557509291869" type="Touch">
+                                    <param id="0" name="Object">Ballerapide</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="2416612633065641" type="Ballerapide">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="5482422848733776" type="Ballerapide">
+                                    <param id="0" name="Speed">-Ballerapide.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="309009835509463" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">8*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="2870551995159337" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6108114558853684">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="7771324982435711" type="Touch">
+                                    <param id="0" name="Object">ballerebondi</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="2102333845019217" type="ballerebondi">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="3724365415596471" type="ballerebondi">
+                                    <param id="0" name="Speed">-ballerebondi.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="4841371950816486" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">4*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="457989091109339" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="368857136460562">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="3660458004135671" type="Touch">
+                                    <param id="0" name="Object">BalleAimant1</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="5641318130236783" type="BalleAimant1">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="1624535552261272" type="BalleAimant1">
+                                    <param id="0" name="Speed">-BalleAimant1.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="6789388246550143" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">6*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="9228043617293523" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="284756808276046">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="3149182984033712" type="Touch">
+                                    <param id="0" name="Object">BalleAimant2</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="3201987705166593" type="BalleAimant2">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="3131391961040642" type="BalleAimant2">
+                                    <param id="0" name="Speed">-BalleAimant2.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1331185278023875" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">6*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="3610685045358095" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3790361550500793">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="3787224631478958" type="Touch">
+                                    <param id="0" name="Object">Ballesautante</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="5720431254944082" type="Ballesautante">
+                                    <param id="0" name="Object">HitZone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="6493508023245232" type="Ballesautante">
+                                    <param id="0" name="Speed">-Ballesautante.Bullet.Speed -AddSpeedGeneral</param>
+                                </action>
+                                <action id="-14" name="Toggle boolean" sid="9800481530230886" type="Ballesautante">
+                                    <param id="0" name="Instance variable">Aller</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1045854448159294" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">3*Multi</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5677474063885039" type="System">
+                                    <param id="0" name="Variable">Multi_hidden</param>
+                                    <param id="1" name="Value">0.3</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="2570046755919398">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="8267001501960376" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="475504606288987" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Value">5</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="4914762786885665" type="System">
-                    <param id="0" name="Variable">intervallepop</param>
-                    <param id="1" name="Value">3</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="4214560505431591">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="2175578612930735" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Value">5</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="5672656319825048" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Value">10</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="6808145382170643" type="System">
-                    <param id="0" name="Variable">intervallepop</param>
-                    <param id="1" name="Value">10</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="8846184941648949">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="8975147200327352" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Value">10</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="1801975531542345" type="System">
-                    <param id="0" name="Variable">Ball_on_screen</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Value">15</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="6387366348867593" type="System">
-                    <param id="0" name="Variable">intervallepop</param>
-                    <param id="1" name="Value">6</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="9158589335775619">
             <conditions>
                 <condition id="-7" name="Compare instance variable" sid="9874771511579927" type="KillZone">
@@ -2009,7 +2313,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="9897818549628026" title="BallSlide">
+        <event-group collapsed="1" description="" sid="9897818549628026" title="BallSlide">
             <sub-events>
                 <event-block sid="3682659234863445">
                     <conditions>
@@ -2957,7 +3261,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group collapsed="1" description="" sid="8808319904843829" title="PopAssets">
+        <event-group description="" sid="8808319904843829" title="PopAssets">
             <sub-events>
                 <event-block sid="2123090903565301">
                     <conditions>
@@ -3202,7 +3506,7 @@
         <variable constant="0" name="Ball_on_screen" sid="8554510464762995" static="0" type="number">0</variable>
         <event-group description="" sid="7380643048407837" title="GestionScore">
             <sub-events>
-                <event-block sid="5202559538399952">
+                <event-block collapsed="1" sid="5202559538399952">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="9730626037183516" type="System" />
                     </conditions>
@@ -3300,6 +3604,14 @@
                             <param id="0" name="Variable">Multi_hidden</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action id="-10" name="Set value" sid="3532150306776454" type="Text_score">
+                            <param id="0" name="Instance variable">IncrScore</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="3830918256385375" type="HitZone">
+                            <param id="0" name="Instance variable">isActive</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -3321,11 +3633,53 @@
             </conditions>
             <actions>
                 <action behavior="ScrollTo" id="0" name="Shake" sid="4265314923569158" type="ScreenshakeCenter">
-                    <param id="0" name="Magnitude">20</param>
+                    <param id="0" name="Magnitude">10</param>
                     <param id="1" name="Duration">0.6</param>
                     <param id="2" name="Mode">0</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="605652687397374">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="247166441408869" type="HitZone">
+                    <param id="0" name="Instance variable">isActive</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="588357388304592" type="System">
+                    <param id="0" name="Variable">intervallepop</param>
+                    <param id="1" name="Value">0.005</param>
+                </action>
+                <action id="-3" name="Set position" sid="7815731497831472" type="SpriteFont">
+                    <param id="0" name="X">50</param>
+                    <param id="1" name="Y">930</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="6187529763229602">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7990215315732866" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="7249718715880326" type="HitZone">
+                            <param id="0" name="Instance variable">WaitTime</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7147717934483176">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9978538731914518" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="3604778192543578" type="SpriteFont">
+                            <param id="0" name="Text">&quot;NEXT LEVEL IN         &quot; &amp; HitZone.WaitTime</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
