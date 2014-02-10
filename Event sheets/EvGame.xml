@@ -3304,7 +3304,7 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="5003892556170734">
+        <event-block disabled="1" sid="5003892556170734">
             <conditions>
                 <condition id="3" name="On touched object" sid="6936039931536707" type="Touch">
                     <param id="0" name="Object">HitZone</param>
